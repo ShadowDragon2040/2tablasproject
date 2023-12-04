@@ -1,3 +1,6 @@
+using _2tablasproject.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,21 +10,26 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(MyAllowSpecificOrigins,
-                          policy =>
-                          {
-                              policy.WithOrigins("http://172.30.48.1:3000",
-                                                 "http://localhost:3000")
-                                                    .AllowAnyHeader()
-                                                    .AllowAnyMethod();
-                          });
+                      policy =>
+                      {
+                          policy.WithOrigins("http://172.30.48.1:3000",
+                                             "http://localhost:3000")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                      });
 });
+
+// Add the DbContext to the services
+builder.Services.AddDbContext<CardDbContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+                    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -33,6 +41,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 
