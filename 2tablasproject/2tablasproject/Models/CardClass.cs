@@ -1,4 +1,6 @@
-﻿namespace _2tablasproject.Models
+﻿using System.Text.Json.Serialization;
+
+namespace _2tablasproject.Models
 {
     public class CardClass
     {
@@ -7,5 +9,8 @@
         public string CardTypeName { get; set; }
         public string CurrencyName { get; set; }
         public int CurrencyAmmount { get; set; }
+
+        [JsonIgnore]
+        public virtual PersonalDataClass CardIndexId { get; set; } = null!;
     }
 }

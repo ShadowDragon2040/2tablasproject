@@ -6,9 +6,6 @@ namespace _2tablasproject.Controllers
     [Route("[controller]")]
     public class PersonalDataController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
     }
 }
