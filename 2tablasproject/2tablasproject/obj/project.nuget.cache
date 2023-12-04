@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P4kmoEN2CaK+BAL0Q0JVe2lb9wSc/TZ0p9pytvHhnE6rrJnNlDy6BePEefu2WNTnKomiKo2mFdV8q2bZ0QrHZw==",
+  "dgSpecHash": "TZN3vqCJBBYd4owVZRBdS+/WUVsv1TdcdGS1VKqvHa2xJCVXlfBOxpu0Hv/AqjeNacS8nKqbhs1NlChdn0//uA==",
   "success": true,
   "projectFilePath": "C:\\Users\\vbalázs\\Documents\\GitHub\\2tablasproject\\2tablasproject\\2tablasproject\\2tablasproject.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,8 @@
     "C:\\Users\\vbalázs\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\vbalázs\\.nuget\\packages\\mysql.data\\8.2.0\\mysql.data.8.2.0.nupkg.sha512",
     "C:\\Users\\vbalázs\\.nuget\\packages\\mysql.entityframeworkcore\\7.0.10\\mysql.entityframeworkcore.7.0.10.nupkg.sha512",
+    "C:\\Users\\vbalázs\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
+    "C:\\Users\\vbalázs\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "C:\\Users\\vbalázs\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\vbalázs\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\vbalázs\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
