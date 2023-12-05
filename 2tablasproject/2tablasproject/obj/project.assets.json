@@ -3151,9 +3151,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vbalázs\\Documents\\GitHub\\2tablasproject\\2tablasproject\\2tablasproject\\2tablasproject.csproj",
-      "projectName": "2tablasproject",
-      "projectPath": "C:\\Users\\vbalázs\\Documents\\GitHub\\2tablasproject\\2tablasproject\\2tablasproject\\2tablasproject.csproj",
+      "projectUniqueName": "C:\\Users\\vbalázs\\Documents\\GitHub\\2tablasproject\\2tablasproject\\2tablasproject\\tablasproject.csproj",
+      "projectName": "tablasproject",
+      "projectPath": "C:\\Users\\vbalázs\\Documents\\GitHub\\2tablasproject\\2tablasproject\\2tablasproject\\tablasproject.csproj",
       "packagesPath": "C:\\Users\\vbalázs\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\vbalázs\\Documents\\GitHub\\2tablasproject\\2tablasproject\\2tablasproject\\obj\\",
       "projectStyle": "PackageReference",

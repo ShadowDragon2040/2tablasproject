@@ -1,16 +1,17 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Collections.Generic;
 
-namespace _2tablasproject.Models
+namespace tablasproject.Models;
+
+public partial class Cardclass
 {
-    public class CardClass
-    {
-        public int CardId { get; set; }
-        public int CardNumber { get; set; }
-        public string CardTypeName { get; set; }
-        public string CurrencyName { get; set; }
-        public int CurrencyAmmount { get; set; }
+    public int CardId { get; set; }
 
-        [JsonIgnore]
-        public virtual PersonalDataClass CardIndexId { get; set; } = null!;
-    }
+    public int CardNumber { get; set; }
+
+    public string CardTypeName { get; set; } = null!;
+
+    public string CurrencyName { get; set; } = null!;
+
+    public int CurrencyAmmount { get; set; }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TZN3vqCJBBYd4owVZRBdS+/WUVsv1TdcdGS1VKqvHa2xJCVXlfBOxpu0Hv/AqjeNacS8nKqbhs1NlChdn0//uA==",
+  "dgSpecHash": "D4F3ex2lMYypfNe6aL4WiMNqRHwm9UCgov9PnkQuA2RrsZ/rgHmy8Ci6kzdvAqG2PjNH8cczEifX7I3yIJVmBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vbalázs\\Documents\\GitHub\\2tablasproject\\2tablasproject\\2tablasproject\\2tablasproject.csproj",
+  "projectFilePath": "C:\\Users\\vbalázs\\Documents\\GitHub\\2tablasproject\\2tablasproject\\2tablasproject\\tablasproject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vbalázs\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\vbalázs\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",

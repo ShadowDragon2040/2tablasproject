@@ -1,4 +1,4 @@
-using _2tablasproject.Models;
+using tablasproject.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,7 +25,7 @@ builder.Services.AddCors(options =>
 });
 
 // Add the DbContext to the services
-builder.Services.AddDbContext<CardDbContext>(options =>
+builder.Services.AddDbContext<TablasprojectContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
                     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
 
