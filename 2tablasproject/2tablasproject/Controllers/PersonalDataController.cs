@@ -1,17 +1,30 @@
-﻿using tablasproject.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using tablasproject.Models;
 
-namespace _2tablasproject.Controllers
+namespace tablasproject.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class PersonalDataController : Controller
     {
+
+        public TablasprojectContext _context;
+        public ResponseResult response;
+
+        public PersonalDataController(TablasprojectContext context)
+        {
+            _context = context;
+            response = new ResponseResult();
+        }
+        /*
         public ResponseResult response = new ResponseResult();
         public PersonalDataController()
         {
             response = new();
         }
+        */
+
         [HttpGet]
         public ActionResult<IEnumerable<Personaldata>> Get()
         {
@@ -31,6 +44,21 @@ namespace _2tablasproject.Controllers
                     return Ok(response);
                 }
             }
+        }
+
+        [HttpGet("BankCards/{cardIndexId}")]
+        public async Task<ActionResult<IEnumerable<Cardclass>>> GetBankCardsByCardIndexId(int cardIndexId)
+        {
+            var bankCards = await _context.Cardclass
+                .Where(card => card.Personaldata.Any(pd => pd.CardIndexId == cardIndexId))
+                .ToListAsync();
+
+            if (bankCards == null || bankCards.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return bankCards;
         }
 
         [HttpGet("{id}")]

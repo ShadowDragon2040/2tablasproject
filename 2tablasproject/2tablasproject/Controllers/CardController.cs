@@ -1,5 +1,6 @@
 ﻿using tablasproject.Models;
 using Microsoft.AspNetCore.Mvc;
+using tablasproject.Models;
 
 namespace tablasproject.Controllers
 {
