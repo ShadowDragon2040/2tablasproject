@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CardWrapper =styled.div`
-    background-color: rgba(112, 66, 20,0.5);
+    background-color: lightblue;
     height: 350px;
     width:600px;
     margin-right: 20px;
