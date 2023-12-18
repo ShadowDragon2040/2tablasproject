@@ -5,6 +5,11 @@ function DataList() {
   const [data, setData] = useState([]);
   /*const [cardData, setcardData] = useState([]);*/
 
+  const [count,setCount] = useState(0);
+  const handleCount = () => {
+    setCount(count+1);
+  }
+
   useEffect(() => {
     fetch('https://localhost:7241/PersonalData')
       .then(response => response.json())
@@ -14,7 +19,7 @@ function DataList() {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [data.count]);
 /*
   useEffect(() => {
     fetch('https://localhost:7241/Card')
@@ -33,7 +38,7 @@ function DataList() {
         <h1>Adat lista</h1>
       </div>
       {data.map(item => (
-        <Card key={item.PersonalId} data={item} /*cardData={cardData}*/ />
+        <Card setCount={handleCount}  key={item.PersonalId} data={item} /*cardData={cardData}*/ />
       ))}
     </div>
   );

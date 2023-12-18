@@ -31,6 +31,7 @@ function Card({ data, /*cardData*/ }) {
       .then(response => {
         //console.log('Data changed:', response.data);
         setIsEditing(false);
+        
       })
       .catch(error => {
         console.error('Error changing data:', error);

@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function BankCard(props) {
+
   const [isEditing, setIsEditing] = useState(false);
-  const [editedData, setEditedData] = useState({ ...props.data });
+  const [editedData, setEditedData] = useState({ ...props });
 
 
   const handleDelete = () => {
-    Delete(props.cardlId);
+    Delete(props.data[0].cardId);
   };
 
   const handleEdit = () => {
@@ -17,7 +18,7 @@ function BankCard(props) {
   };
 
   const handleSaveChanges = () => {
-    axios.put(`https://localhost:7241/Card?id=${props.data.cardId}`, editedData)
+    axios.put(`https://localhost:7241/Card?id=${props.data[0].cardId}`, editedData)
       .then(response => {
         console.log('Data changed:', response.data);
         setIsEditing(false);
@@ -72,7 +73,7 @@ function BankCard(props) {
             />
           </TextWrapper>
           <TextWrapper>
-          Currency Ammount:
+          Currency Amount:
             <input
               type="text"
               name="currencyAmmount"
