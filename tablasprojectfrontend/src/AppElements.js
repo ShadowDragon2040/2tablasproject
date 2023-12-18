@@ -2,15 +2,24 @@ import styled from "styled-components";
 
 export const CardWrapper =styled.div`
     background-color: lightblue;
-    height: 350px;
+    width:620px;
+    margin-right: 10px;
+    margin-left:10px;
+    margin-top:40px;
+    margin-bottom:40px;
+    float: left;
+    padding: 8px;
+    border-radius: 30px;
+    border: 2px solid;
+`
+export const CardWrapper2 =styled.div`
+    background-color: lavender;
     width:600px;
-    margin-right: 20px;
-    margin-left:20px;
     margin-top:40px;
     margin-bottom:40px;
     float: left;
     padding: 10px;
-    border-radius: 40px;
+    border-radius: 30px;
     border: 2px solid;
 `
 export const TextWrapper =styled.p`

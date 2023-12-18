@@ -1,14 +1,15 @@
-import { CardWrapper,TextWrapper,Heading, DeleteButton, EditButton,CardsButton,Heading3 } from '../AppElements';
+import { CardWrapper2,TextWrapper,Heading, DeleteButton, EditButton,CardsButton,Heading3 } from '../AppElements';
 import Delete from './Delete';
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function BankCard({ data }) {
+function BankCard(props) {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedData, setEditedData] = useState({ ...data });
+  const [editedData, setEditedData] = useState({ ...props.data });
+
 
   const handleDelete = () => {
-    Delete(data.personalId);
+    Delete(props.cardlId);
   };
 
   const handleEdit = () => {
@@ -16,7 +17,7 @@ function BankCard({ data }) {
   };
 
   const handleSaveChanges = () => {
-    axios.put(`https://localhost:7241/Card?id=${data.cardId}`, editedData)
+    axios.put(`https://localhost:7241/Card?id=${props.data.cardId}`, editedData)
       .then(response => {
         console.log('Data changed:', response.data);
         setIsEditing(false);
@@ -28,7 +29,7 @@ function BankCard({ data }) {
 
   const handleCancel = () => {
     setIsEditing(false);
-    setEditedData({ ...data });
+    setEditedData({ ...props });
   };
 
   const handleChange = (e) => {
@@ -39,8 +40,8 @@ function BankCard({ data }) {
   };
 
   return (
-    <CardWrapper>
-      <Heading3>Id number: {data.cardId}</Heading3>
+    <CardWrapper2>
+      <Heading3>Card id number: {props.data[0].cardId}</Heading3>
       {isEditing ? (
         <>
           <TextWrapper>
@@ -83,10 +84,10 @@ function BankCard({ data }) {
       ) : (
         <>
           <Heading3>Card Number:</Heading3>
-          <Heading>{data.cardNumber}</Heading>
-          <TextWrapper>Card Type Name: {data.cardTypeName}</TextWrapper>
-          <TextWrapper>Currency Name: {data.currencyName}</TextWrapper>
-          <TextWrapper>Currency Ammount: {data.currencyAmmount}</TextWrapper>
+          <Heading>{props.data[0].cardNumber}</Heading>
+          <TextWrapper>Card Type Name: {props.data[0].cardTypeName}</TextWrapper>
+          <TextWrapper>Currency Name: {props.data[0].currencyName}</TextWrapper>
+          <TextWrapper>Currency Ammount: {props.data[0].currencyAmmount}</TextWrapper>
         </>
       )}
       {isEditing ? (
@@ -100,7 +101,7 @@ function BankCard({ data }) {
           <EditButton onClick={handleEdit}>Edit</EditButton>
         </>
       )}
-    </CardWrapper>
+    </CardWrapper2>
   );
 }
 

@@ -12,7 +12,7 @@ import {
 import Delete from './Delete';
 import BankCard from './Bank Card';
 
-function Card({ data }) {
+function Card({ data, /*cardData*/ }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState({ ...data });
   const [showBankCard, setShowBankCard] = useState(false);
@@ -29,7 +29,7 @@ function Card({ data }) {
   const handleSaveChanges = () => {
     axios.put(`https://localhost:7241/PersonalData?id=${data.personalId}`, editedData)
       .then(response => {
-        console.log('Data changed:', response.data);
+        //console.log('Data changed:', response.data);
         setIsEditing(false);
       })
       .catch(error => {
@@ -47,14 +47,15 @@ function Card({ data }) {
 
     if (!showBankCard) {
       axios.get(`https://localhost:7241/PersonalData/BankCards/${data.cardIndexId}`)
-        .then(response => {
-          console.log('Card Data:', response.data);
-          setBankCardData(response.data);
-        })
-        .catch(error => {
-          console.error('Error getting card data:', error);
-        });
+      .then(response => {
+        //console.log('Card Data:', response.data);
+        setBankCardData(response.data);
+      })
+      .catch(error => {
+        console.error('Error getting card data:', error);
+      });
     }
+
   };
 
   const handleChange = (e) => {
@@ -126,7 +127,7 @@ function Card({ data }) {
           <CardsButton onClick={handleCards}>Cards</CardsButton>
         </>
       )}
-      {showBankCard && bankCardData && <BankCard data={bankCardData} />}
+      {showBankCard && bankCardData && <BankCard data={bankCardData} /*cardData={cardData}*/ />}
     </CardWrapper>
   );
 }
