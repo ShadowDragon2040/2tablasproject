@@ -91,6 +91,8 @@ namespace tablasproject.Controllers
                 existingPersonalData.FirstName = UpdatePersonalDataDto.FirstName;
                 existingPersonalData.LastName = UpdatePersonalDataDto.LastName;
                 existingPersonalData.Gender = UpdatePersonalDataDto.Gender;
+                existingPersonalData.Language = UpdatePersonalDataDto.Language;
+                existingPersonalData.CardIndexId = UpdatePersonalDataDto.CardIndexId;
                 context.Personaldata.Update(existingPersonalData);
                 context.SaveChanges();
                 if (existingPersonalData == null)

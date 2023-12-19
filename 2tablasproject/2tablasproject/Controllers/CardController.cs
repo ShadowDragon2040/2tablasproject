@@ -8,11 +8,15 @@ namespace tablasproject.Controllers
     [Route("[controller]")]
     public class CardController : Controller
     {
-        public ResponseResult response = new ResponseResult();
-        public CardController()
+        private readonly TablasprojectContext _context;
+        public ResponseResult response;
+
+        public CardController(TablasprojectContext context)
         {
-            response = new();
+            _context = context;
+            response = new ResponseResult();
         }
+
         [HttpGet]
         public ActionResult<IEnumerable<Cardclass>> Get()
         {
@@ -107,25 +111,25 @@ namespace tablasproject.Controllers
         [HttpPost]
         public ActionResult<Cardclass> Post(CreateCardDto createCardclassDto)
         {
-            var car = new Cardclass()
+            var card = new Cardclass()
             {
                 CardNumber = createCardclassDto.CardNumber,
                 CardTypeName = createCardclassDto.CardTypeName,
                 CurrencyName = createCardclassDto.CurrencyName,
                 CurrencyAmmount = createCardclassDto.CurrencyAmmount,
             };
-            using (var result = new TablasprojectContext())
-            {
-                result.Cardclass.Add(car);
-                result.SaveChanges();
-                if (result == null)
+          
+                _context.Cardclass.Add(card);
+                _context.SaveChanges();
+
+                if (card == null)
                 {
                     response.Message = "Sikertelen hozzáadás";
                     return BadRequest(response);
                 }
                 else
                 {
-                    response.result = result;
+                    response.result = card;
                     response.IsSuccess = true;
                     response.Message = "Sikeres hozzáadás";
                     return Ok(response);
@@ -133,4 +137,4 @@ namespace tablasproject.Controllers
             }
         }
     }
-}
+

@@ -29,7 +29,7 @@ function Card({ data, /*cardData*/ }) {
   const handleSaveChanges = () => {
     axios.put(`https://localhost:7241/PersonalData?id=${data.personalId}`, editedData)
       .then(response => {
-        //console.log('Data changed:', response.data);
+        console.log('Data changed:', response.data);
         setIsEditing(false);
         
       })
@@ -107,6 +107,15 @@ function Card({ data, /*cardData*/ }) {
               onChange={handleChange}
             />
           </TextWrapper>
+          <TextWrapper>
+            Card index id:
+            <input
+              type="text"
+              name="cardIndexId"
+              value={editedData.cardIndexId}
+              onChange={handleChange}
+            />
+          </TextWrapper>
         </>
       ) : (
         <>
@@ -114,6 +123,7 @@ function Card({ data, /*cardData*/ }) {
           <Heading>{data.firstName} {data.lastName}</Heading>
           <TextWrapper>Gender: {data.gender}</TextWrapper>
           <TextWrapper>Language: {data.language}</TextWrapper>
+          <TextWrapper>Card index id: {data.cardIndexId}</TextWrapper>
         </>
       )}
       {isEditing ? (
