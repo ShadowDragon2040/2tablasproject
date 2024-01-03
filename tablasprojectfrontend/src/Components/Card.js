@@ -12,7 +12,7 @@ import {
 import Delete from './Delete';
 import BankCard from './Bank Card';
 
-function Card({ data, /*cardData*/ }) {
+function Card({data, onUpdate}) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState({ ...data });
   const [showBankCard, setShowBankCard] = useState(false);
@@ -20,6 +20,7 @@ function Card({ data, /*cardData*/ }) {
 
   const handleDelete = () => {
     Delete(data.personalId);
+    onUpdate();
   };
 
   const handleEdit = () => {
@@ -31,7 +32,7 @@ function Card({ data, /*cardData*/ }) {
       .then(response => {
         console.log('Data changed:', response.data);
         setIsEditing(false);
-        
+        onUpdate();
       })
       .catch(error => {
         console.error('Error changing data:', error);
@@ -49,7 +50,6 @@ function Card({ data, /*cardData*/ }) {
     if (!showBankCard) {
       axios.get(`https://localhost:7241/PersonalData/BankCards/${data.cardIndexId}`)
       .then(response => {
-        //console.log('Card Data:', response.data);
         setBankCardData(response.data);
       })
       .catch(error => {
@@ -138,7 +138,7 @@ function Card({ data, /*cardData*/ }) {
           <CardsButton onClick={handleCards}>Cards</CardsButton>
         </>
       )}
-      {showBankCard && bankCardData && <BankCard data={bankCardData} /*cardData={cardData}*/ />}
+      {showBankCard && bankCardData && <BankCard data={bankCardData} />}
     </CardWrapper>
   );
 }

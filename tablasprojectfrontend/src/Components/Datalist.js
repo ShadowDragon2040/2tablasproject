@@ -5,9 +5,8 @@ import NewCardForm from './newCard';
 
 function DataList() {
   const [data, setData] = useState([]);
-  /*const [cardData, setcardData] = useState([]);*/
-
   const [count,setCount] = useState(0);
+  
   const handleCount = () => {
     setCount(count+1);
   }
@@ -22,35 +21,26 @@ function DataList() {
         console.error(error);
       });
   }, [data.count]);
-/*
-  useEffect(() => {
-    fetch('https://localhost:7241/Card')
-      .then(response => response.json())
-      .then(data => {
-        setcardData(data.result);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
-*/
+
 const handleDataAdded = (newData) => {
   setData(prevData => [...prevData, newData]);
+  handleCount();
 };
 
 const handleCardAdded = (newData) => {
   setData(prevData => [...prevData, newData]);
+  handleCount();
 };
 
   return (
     <div>
-      <div>
+      <div style={{textAlign: 'center'}}>
         <h1>Adat lista</h1>
       </div>
-      <NewDataForm onDataAdded={handleDataAdded} />
-      <NewCardForm onCardAdded={handleCardAdded} />
+        <NewDataForm onDataAdded={handleDataAdded} />
+        <NewCardForm onCardAdded={handleCardAdded} />
       {data.map(item => (
-        <Card setCount={handleCount}  key={item.PersonalId} data={item} /*cardData={cardData}*/ />
+        <Card setCount={handleCount}  key={item.PersonalId} data={item} onUpdate={handleCount}/>
       ))}
     </div>
   );

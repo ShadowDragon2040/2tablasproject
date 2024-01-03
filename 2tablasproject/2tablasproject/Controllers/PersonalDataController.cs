@@ -136,7 +136,7 @@ namespace tablasproject.Controllers
         [HttpPost]
         public ActionResult<Personaldata> Post(CreatePersonalDataDto createPersonalDataDto)
         {
-            var car = new Personaldata()
+            var card = new Personaldata()
             {
                 FirstName = createPersonalDataDto.FirstName,
                 LastName = createPersonalDataDto.LastName,
@@ -146,7 +146,7 @@ namespace tablasproject.Controllers
             };
             using (var result = new TablasprojectContext())
             {
-                result.Personaldata.Add(car);
+                result.Personaldata.Add(card);
                 result.SaveChanges();
                 if (result == null)
                 {
