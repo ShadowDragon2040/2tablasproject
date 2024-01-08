@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import NewDataForm from './newData';
 import NewCardForm from './newCard';
+import { Heading } from '../AppElements';
 
 function DataList() {
   const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ function DataList() {
       .catch(error => {
         console.error(error);
       });
-  }, [data.count]);
+  }, [count]);
 
 const handleDataAdded = (newData) => {
   setData(prevData => [...prevData, newData]);
@@ -33,14 +34,14 @@ const handleCardAdded = (newData) => {
 };
 
   return (
-    <div>
+    <div style={{padding: '100px'}}>
       <div style={{textAlign: 'center'}}>
-        <h1>Adat lista</h1>
+        <Heading>Adat lista</Heading>
       </div>
-        <NewDataForm onDataAdded={handleDataAdded} />
-        <NewCardForm onCardAdded={handleCardAdded} />
+        <NewDataForm onUpdate={handleCount} onDataAdded={handleDataAdded} />
+        <NewCardForm onUpdate={handleCount} onCardAdded={handleCardAdded} />
       {data.map(item => (
-        <Card setCount={handleCount}  key={item.PersonalId} data={item} onUpdate={handleCount}/>
+        <Card  key={item.PersonalId} data={item} onUpdate={handleCount}/>
       ))}
     </div>
   );

@@ -1,9 +1,8 @@
-// NewCardForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { TextWrapper, CardWrapper, CardsButton } from '../AppElements';
+import { TextWrapper, CardWrapper3, CardsButton2, Heading3 } from '../AppElements';
 
-function NewCardForm({ onDataAdded }) {
+function NewCardForm({ onDataAdded, onUpdate }) {
   const [formData, setFormData] = useState({
     cardNumber: '',
     cardTypeName: '',
@@ -24,7 +23,6 @@ function NewCardForm({ onDataAdded }) {
     axios.post('https://localhost:7241/Card', formData)
       .then(response => {
         console.log('New card added:', response.data);
-        // Check if onDataAdded prop is provided before calling it
         if (onDataAdded) {
           onDataAdded(response.data);
         }
@@ -38,14 +36,15 @@ function NewCardForm({ onDataAdded }) {
       .catch(error => {
         console.error('Error adding new card:', error);
       });
+      onUpdate();
   };
 
   return (
-    <CardWrapper>
-      <TextWrapper>Új kártya felvétele:</TextWrapper>
+    <CardWrapper3>
+      <Heading3 style={{textAlign:"center"}}>Új kártya felvétele:</Heading3>
       <form onSubmit={handleSubmit}>
         <TextWrapper>
-          Card number:
+          Card number:   
           <input
             type="text"
             name="cardNumber"
@@ -84,9 +83,9 @@ function NewCardForm({ onDataAdded }) {
             required
           />
         </TextWrapper>
-        <CardsButton type="submit">Add card</CardsButton>
+        <CardsButton2 type="submit">Add Card</CardsButton2>
       </form>
-    </CardWrapper>
+    </CardWrapper3>
   );
 }
 

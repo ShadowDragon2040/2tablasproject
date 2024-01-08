@@ -138,7 +138,7 @@ function Card({data, onUpdate}) {
           <CardsButton onClick={handleCards}>Cards</CardsButton>
         </>
       )}
-      {showBankCard && bankCardData && <BankCard data={bankCardData} />}
+      {showBankCard && bankCardData && <BankCard onUpdate={onUpdate} data={bankCardData} />}
     </CardWrapper>
   );
 }

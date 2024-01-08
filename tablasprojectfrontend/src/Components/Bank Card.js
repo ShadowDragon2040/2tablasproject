@@ -3,7 +3,7 @@ import Delete from './Delete';
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function BankCard(props) {
+function BankCard(props, onUpdate) {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState({ ...props });

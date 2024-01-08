@@ -22,6 +22,17 @@ export const CardWrapper2 =styled.div`
     border-radius: 30px;
     border: 2px solid;
 `
+export const CardWrapper3 =styled.div`
+    background-color: lightblue;
+    margin-right: 10px;
+    margin-left:10px;
+    margin-top:40px;
+    margin-bottom:40px;
+    padding: 8px;
+    border-radius: 30px;
+    border: 2px solid;
+    width: 1250px;
+`
 export const TextWrapper =styled.p`
     font-size: 16px;
     line-height: 16px;
@@ -61,6 +72,16 @@ export const EditButton =styled.button`
     background-color: yellow;
 `
 export const CardsButton =styled.button`
+    margin-right: 20px;
+    border-width:1px;
+    border-radius: 10px;
+    width:150px;
+    height:50px;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: green;
+`
+export const CardsButton2 =styled.button`
     margin-right: 20px;
     border-width:1px;
     border-radius: 10px;

@@ -132,7 +132,7 @@ namespace tablasproject.Controllers
                 }
             }
         }
-
+        /*
         [HttpPost]
         public ActionResult<Personaldata> Post(CreatePersonalDataDto createPersonalDataDto)
         {
@@ -144,22 +144,48 @@ namespace tablasproject.Controllers
                 Language = createPersonalDataDto.Language,
                 CardIndexId = createPersonalDataDto.CardIndexId,
             };
-            using (var result = new TablasprojectContext())
+            using var result = new TablasprojectContext();
+            result.Personaldata.Add(card);
+            result.SaveChanges();
+            if (result == null)
             {
-                result.Personaldata.Add(card);
-                result.SaveChanges();
-                if (result == null)
-                {
-                    response.Message = "Sikertelen hozzáadás";
-                    return BadRequest(response);
-                }
-                else
-                {
-                    response.result = result;
-                    response.IsSuccess = true;
-                    response.Message = "Sikeres hozzáadás";
-                    return Ok(response);
-                }
+                response.Message = "Sikertelen hozzáadás";
+                return BadRequest(response);
+            }
+            else
+            {
+                response.result = result;
+                response.IsSuccess = true;
+                response.Message = "Sikeres hozzáadás";
+                return Ok(response);
+            }
+        }*/
+        [HttpPost]
+        public ActionResult<Personaldata> Post(CreatePersonalDataDto createPersonalDataDto)
+        {
+            var card = new Personaldata()
+            {
+                FirstName = createPersonalDataDto.FirstName,
+                LastName = createPersonalDataDto.LastName,
+                Gender = createPersonalDataDto.Gender,
+                Language = createPersonalDataDto.Language,
+                CardIndexId = createPersonalDataDto.CardIndexId,
+            };
+
+            _context.Personaldata.Add(card);
+            _context.SaveChanges();
+
+            if (card == null)
+            {
+                response.Message = "Sikertelen hozzáadás";
+                return BadRequest(response);
+            }
+            else
+            {
+                response.result = card;
+                response.IsSuccess = true;
+                response.Message = "Sikeres hozzáadás";
+                return Ok(response);
             }
         }
     }

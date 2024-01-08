@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { TextWrapper,CardWrapper, CardsButton } from '../AppElements';
+import { TextWrapper,CardWrapper3, CardsButton2, Heading3 } from '../AppElements';
 
-function NewDataForm({ onDataAdded }) {
+function NewDataForm({ onDataAdded, onUpdate }) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -34,11 +34,12 @@ function NewDataForm({ onDataAdded }) {
       .catch(error => {
         console.error('Error adding new data:', error);
       });
+      onUpdate();
   };
 
   return (
-    <CardWrapper>
-        <TextWrapper>Új személy felvétele:</TextWrapper>
+    <CardWrapper3>
+        <Heading3 style={{textAlign:"center"}}>Új személy felvétele:</Heading3>
         <form onSubmit={handleSubmit}>
         <TextWrapper>
             First Name:
@@ -90,9 +91,9 @@ function NewDataForm({ onDataAdded }) {
             required
             />
         </TextWrapper>
-        <CardsButton type="submit">Add Data</CardsButton>
+        <CardsButton2 type="submit">Add Data</CardsButton2>
         </form>
-    </CardWrapper>
+    </CardWrapper3>
   );
 }
 
